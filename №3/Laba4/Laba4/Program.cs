@@ -1,95 +1,185 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Laba4
-{
-    class Program
+{ 
+    // Статические класс
+    //  Математически операции
+    public static class MathOperation
     {
-       
-            public class Queue
+        public static int GetCount(Queue queue_2)
         {
-            public Queue(int data)
+            int count = 0;
+            foreach (int i in queue_2)
+                count++;
+            return count;
+        }
+        public static int GetMax(Queue queue_2)
+        {
+            int max = 0;
+            foreach (int i in queue_2)
             {
-                Data = data;
+                if (i > max)
+                    max = i;
+
             }
-            public int Data { get; set; }
-            public Queue<int> Next { get; set; }
-       
-  
+            return max;
+            
+        }
+        public static int GetMin(Queue queue_2)
+        {
+            int min = 0;
+            foreach (int i in queue_2)
+            {
+                if (i < min)
+                    min = i;
+            }
+            return min;
 
+        }
+        public static int Sum(Queue queue_2)
+        {
+            int sum = 0;
+            foreach (int i in queue_2)
+            {
+                sum += i;
 
+            }
+            return sum;
 
-            Queue head; // first element 
-            Queue tail; // lasat element
+        }
+    }
+    public static class extensions
+    {
+        public static int Lastelem(this int queue_1,  int tail)
+        {
+           return tail;
+        }
+    }
+    class Program
+    { // Владелец
+        public class Owner
+        {
+            public string ID { get; } = "11111111";
+            public string Name { get; } = "Nikita";
+            public string Univer { get; } = "BSTU";
+        }
+        // Дата
+        class DATA
+        {
+            public DateTime info;
+            
+        }
+
+        // Очередь
+        public class Queue
+        {
+            public int[] dataarr; // данные
+            public int head;//голова
+            public int tail;// хвост
             int count;
-            public readonly Owner owner = new Owner();
-            public DateTime Showdate() => DateNow.date;
-            private class DateNow
-            {
-                public static DateTime date = DateTime.Now;
-            }
-            public void Enqueue(int data)
-            {
-                Queue<int> a = new Queue<int>(data);
-                Queue<int> tempQueue = tail;
-                tail = a;
+            private static DateTime info;
 
-                if (count == 0)
-                    head = tail;
-                else
-                    tempQueue.next = tail;
+            Queue(int numbers)
+            {
+                dataarr = new int[3];
+                head = 0;
+                tail = 0;
+
+            }
+            public void Enqueue(int item)// добавление
+            {
+                dataarr[tail] = item;
+                tail++;
                 count++;
             }
-            public int Dequeue()
+            public int Dequeue(int a)// извлечение
             {
-                //if (count == 0)
-                //       throw new InvalidOperationException();
-                int output = head.Data;
-                head = head.next;
+                a = dataarr[head];
+                head++;
+                return a;
                 count--;
-                return output;
             }
-            public int last
+
+
+
+            public readonly Owner owner = new Owner();
+
+            // Перегрузка операций
+            //////////////////
+            public static Queue operator +(Queue q1, int q2)
             {
-                get
-                {
-                    //if (IsEmpty)
-                    //   throw new InvalidOperationException();
-                    return tail.Data;
-                }
+                q1.Enqueue(q2);
+                return q1;
             }
+            ///////////////////
+            public static Queue operator -(Queue q1, int q2)
+            {
+                q1.Enqueue(q2);
+                return q1;
+            }
+            ///////////////////
+            public static bool operator true(Queue q1)
+            {
+                return q1.head == q1.tail;
+            }
+            ////////////////////
+            public static bool operator false(Queue q1)
+            {
+                return q1.head != q1.tail;
+            }
+            ////////////////////
+            public static Queue operator >(Queue q1, Queue q2)
+            {
+                for (int i = 0; i < q1.count; i++)
+                {
+                    q2.dataarr[i] = q1.dataarr[i];
+                }
+                return q2;
+            }
+            public static Queue operator <(Queue q1, Queue q2)
+            {
+
+                return q2;
+            }
+            ///////////////
             public int Count { get { return count; } }
-            public bool IsEmpty { get { return count == 0; } }
+
             public void Clear()
             {
-                head = null;
-                tail = null;
+                head = 0;
+                tail = 0;
                 count = 0;
             }
-
-            public class Owner
-            {
-                public string ID { get; } = "11111111";
-                public string Name { get; } = "Nikita";
-                public string Univer { get; } = "BSTU";
-            }
-
+        
+           
+        
             static void Main(string[] args)
             {
-                Queue<int> queue = new Queue<int>();
-                queue.Enqueue(5);
-                queue.Enqueue(4);
-                queue.Enqueue(10);
-                queue.Enqueue(15);
-                queue.Enqueue(2);
-                foreach (int item in queue)
-                    Console.WriteLine(item);
-                int firstItem = queue.Dequeue();
-                Console.WriteLine($"Извлеченный элемент очереди: {firstItem}");
+                Queue queue_1 = new Queue(3);
+                Queue queue_2 = new Queue(2);
+                queue_1.Enqueue(5);
+                queue_1 = queue_1 + 2;
+                queue_1 = queue_1 + 1;
+                Console.WriteLine("Очередь №1");
+                foreach (int i in queue_1.dataarr)
+                    Console.WriteLine(i);
+                Console.WriteLine("Очередь №2 до");
+                foreach (int i in queue_2.dataarr)
+                    Console.WriteLine(i);
+                queue_2 = queue_1 > queue_2;
+                Console.WriteLine("Очередь №2 после");
+                foreach (int i in queue_2.dataarr)
+                 Console.WriteLine(i);
+                info = DateTime.Now;
+                Console.WriteLine(info);
+                Console.WriteLine("Name: "+queue_1.owner.Name);
+                Console.WriteLine("ID: "+queue_1.owner.ID);
+                Console.WriteLine("Univer: " + queue_1.owner.Univer);
             }
+
+            
         }
     }
 }

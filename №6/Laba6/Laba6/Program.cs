@@ -20,15 +20,13 @@ namespace LAba5
 
     public abstract partial class Animals: Base
         { 
-
-
         public virtual string Kind_of_animal { get; set; } // Вид животного
         public string Habitat;
         public void str()
         {
             Habitat = null;
         }
-       public  int Age;
+       
 
         public override string ToString()
         {
@@ -57,6 +55,10 @@ namespace LAba5
         {
 
         }
+        public Mammial(): base(2015,224 )
+        {
+
+        }
 
     }
     public class Birds : Animals
@@ -74,6 +76,10 @@ namespace LAba5
             return this.Kind_of_animal;
         }
         public override void Sound()
+        {
+
+        }
+        public Birds() : base(2012, 28)
         {
 
         }
@@ -97,6 +103,10 @@ namespace LAba5
         {
 
         }
+        public Fish() : base(2018, 10)
+        {
+
+        }
     }
     // Бесплоный класс
     sealed class Crocodile : Animals, ISound, Iinter
@@ -108,11 +118,15 @@ namespace LAba5
 
         public override void Sound()
         {
-            Console.WriteLine("Араррараарар");
+           // Console.WriteLine("Араррараарар");
         }
         void ISound.Sound()
         {
             Console.WriteLine(" Реализация функции интерфейса");
+        }
+        public Crocodile() : base(2010,250)
+        {
+
         }
     }
 
@@ -128,8 +142,9 @@ namespace LAba5
         public override void Sound()
         {
             Console.WriteLine("Рррррр");
-        }
 
+        }
+     
     }
     public class Tigr : Mammial, ISound, Iinter
     {
@@ -199,40 +214,35 @@ namespace LAba5
                 ZOO zoo = new ZOO();
                 Mammial[] mammials = new Mammial[2];
                 Lion Lion = new Lion();
-                Lion.Kind_of_animal = "Mammial";
-                Lion.Habitat = "Savanna";
+                //Lion.Kind_of_animal = "Mammial";
+                //Lion.Habitat = "Savanna";
                 Tigr Tigra = new Tigr();
-                Tigra.Kind_of_animal = "Mammial";
-                Tigra.Habitat = "Savanna";
-                mammials[0] = Lion;
-                mammials[1] = Tigra;
-                Fish fish = new Fish()
+                //  Tigra.Kind_of_animal = "Mammial";
+                //Tigra.Habitat = "Savanna";
+                Birds[] birds = new Birds[2];
+                Parrot parrot = new Parrot();
+                Owl owls = new Owl();
+                    Fish fish = new Fish()
                 {
-                    Kind_of_animal = "Fish",
-                    Habitat = "Ocean"
+                  //  Kind_of_animal = "Fish",
+                   // Habitat = "Ocean"
                 };
-                Crocodile croky = new Crocodile();
-                ISound sou = croky;
-                Console.WriteLine("Croky");
-                Console.Write("Голос:");
-
+                Crocodile croky = new Crocodile();  
                 croky.Sound();
                 zoo.Add(Lion);
                 zoo.Add(Tigra);
                 zoo.Add(fish);
                 zoo.Add(croky);
-                zoo.show();
+                zoo.Add(owls);
+                zoo.Add(parrot);
+                //zoo.show();
                 controller.show(zoo);
                 controller.sort(zoo);
-
-                ///
-
-
-                //////
-           
+                Console.WriteLine("Sortirovka");
+                controller.show(zoo);
 
 
-                ////////
+
                 /////
                 //Console.WriteLine();
                 //Console.WriteLine(mammials.ToString());

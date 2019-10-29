@@ -4,9 +4,13 @@ using System.Text;
 
 namespace LAba5
 {
-    public abstract partial  class Animal
+    public abstract partial  class Animals
     {
-        public int Age;
+        public Animals(int age, int weight)
+        {
+            info.Age = age;
+            info.Weight = weight;
+        }
     }
 
 
@@ -24,12 +28,12 @@ namespace LAba5
         public Base[]  an;
         public int count = 0;
         public int size;
-      //  list list = new list();
+        list list = new list();
 
         public ZOO()
         {
             size = 5;
-            an = new Base[5];
+            an = new Base[6];
         }
 
         public bool isFull()
@@ -75,12 +79,14 @@ namespace LAba5
             Console.WriteLine();
         }
     }
+ 
 
     public abstract class Base
     {
         public struct Info
         {
             public int Age;
+            public int Weight;
         }
         public Info info = new Info();
     }
@@ -89,10 +95,12 @@ namespace LAba5
     {
 
 
-        public static     void counter(ZOO animal)
+        public static   void Weight(ZOO animal)
         {
-            int count;
-        
+            for (int i = 0; i < animal.count - 1; i++)
+            {
+
+            }
         }
 
         public static void sort(ZOO animal)
@@ -114,10 +122,15 @@ namespace LAba5
 
         public static void show(ZOO animal)
         {
+            
+
             string[]  Kind = new string[6];
-            string[] Name = new string[6];
+            int[] Age = new int[6];
+            int[] Weight = new int[6];
+            int[] count = new int[7];
             int pos = 0;
             bool b = false;
+
             for (int j = 0; j < animal.count; j++)
             {
                 for (int i = 0; i < pos; i++)
@@ -125,23 +138,26 @@ namespace LAba5
                     if (Kind[i] == (animal.an[j].GetType()).Name)
                     {
                         b = true;
-                      //  count[i]++;
+                        count[i]++;
                         break;
                     }
                 }
                 if (!b)
                 {
                     Kind[pos] = animal.an[j].GetType().Name;
-                    //count[pos]++;
+                    Age[pos] = animal.an[j].info.Age;
+                    Weight[pos] = animal.an[j].info.Weight;
+                    count[pos]++;
                     pos++;
                 }
+               
                 b = false;
             }
 
             Console.WriteLine("Info:");
             for (int i = 0; i < pos; i++)
             {
-                Console.WriteLine($"{Kind[i]} - {Name[i]}");
+                Console.WriteLine( $" Вид {Kind[i]}  -  Год рождения: {Age[i]}  -   Вес: {Weight[i]}   Кг ");
             }
             Console.WriteLine();
         }

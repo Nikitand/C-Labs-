@@ -95,13 +95,18 @@ namespace LAba5
     {
 
 
-        public static   void Weight(ZOO animal)
-        {
-            for (int i = 0; i < animal.count - 1; i++)
-            {
-
-            }
-        }
+        //public static void Weight(ZOO animal)
+        //{
+        //    int sum = 0;
+        //    for (int i = 0; i < animal.count - 1; i++)
+        //    {
+        //        for (int j = 0; j < 2; j++)
+        //        {
+        //            sum = animal.an[j].info.Weight + animal.an[j].info.Weight;
+        //            Console.WriteLine(sum);
+        //        }
+        //    }
+        //}
 
         public static void sort(ZOO animal)
         {

@@ -55,7 +55,7 @@ namespace LAba5
         {
 
         }
-        public Mammial(): base(2015,224 )
+        public Mammial(int age, int weight): base(age ,weight )
         {
 
         }
@@ -79,7 +79,7 @@ namespace LAba5
         {
 
         }
-        public Birds() : base(2012, 28)
+        public Birds(int age, int weight) : base(age, weight)
         {
 
         }
@@ -107,6 +107,10 @@ namespace LAba5
         {
 
         }
+        public Fish(int age, int weight) : base(age, weight)
+        {
+
+        }
     }
     // Бесплоный класс
     sealed class Crocodile : Animals, ISound, Iinter
@@ -128,6 +132,10 @@ namespace LAba5
         {
 
         }
+        public Crocodile(int age, int weight) : base(age, weight)
+        {
+
+        }
     }
 
 
@@ -144,7 +152,10 @@ namespace LAba5
             Console.WriteLine("Рррррр");
 
         }
-     
+        public Lion(int age, int weight): base(age, weight)
+        {
+
+        }
     }
     public class Tigr : Mammial, ISound, Iinter
     {
@@ -156,6 +167,10 @@ namespace LAba5
         public override void Sound()
         {
             Console.WriteLine("Рррррр");
+        }
+        public Tigr(int age, int weight) : base(age, weight)
+        {
+
         }
     }
     public class Owl : Birds, ISound
@@ -169,6 +184,10 @@ namespace LAba5
         {
             Console.WriteLine("Оу Оу");
         }
+        public Owl(int age, int weight) : base(age, weight)
+        {
+
+        }
     }
     public class Parrot : Birds
     {
@@ -181,6 +200,11 @@ namespace LAba5
         {
             Console.WriteLine("Привет, я попугай Кеша");
         }
+        public Parrot(int age, int weight) : base(age, weight)
+        {
+
+        }
+    }
 
         public class Shark : Fish, Iinter
         {
@@ -190,8 +214,11 @@ namespace LAba5
 
                 Console.WriteLine("Nemo");
             }
+        public Shark(int age, int weight) : base(age, weight)
+        {
 
         }
+    }
         
         // /print
 
@@ -213,20 +240,20 @@ namespace LAba5
                 //int a = 8;
                 ZOO zoo = new ZOO();
                 Mammial[] mammials = new Mammial[2];
-                Lion Lion = new Lion();
+                Lion Lion = new Lion(2015, 64);
                 //Lion.Kind_of_animal = "Mammial";
                 //Lion.Habitat = "Savanna";
-                Tigr Tigra = new Tigr();
+                Tigr Tigra = new Tigr(2014,65);
                 //  Tigra.Kind_of_animal = "Mammial";
                 //Tigra.Habitat = "Savanna";
                 Birds[] birds = new Birds[2];
-                Parrot parrot = new Parrot();
-                Owl owls = new Owl();
-                    Fish fish = new Fish()
-                {
+                Parrot parrot = new Parrot(2017,2);
+                Owl owls = new Owl(2015,3);
+            Fish fish = new Fish(2019, 1);
+                //{
                   //  Kind_of_animal = "Fish",
                    // Habitat = "Ocean"
-                };
+                //};
                 Crocodile croky = new Crocodile();  
                 croky.Sound();
                 zoo.Add(Lion);
@@ -240,7 +267,7 @@ namespace LAba5
                 controller.sort(zoo);
                 Console.WriteLine("Sortirovka");
                 controller.show(zoo);
-
+            zoo.show();
 
 
                 /////
@@ -261,4 +288,3 @@ namespace LAba5
             }
         }
     }
-}

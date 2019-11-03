@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections;
 
 namespace Laba7
 {
@@ -19,10 +19,7 @@ namespace Laba7
     {
         public virtual string Kind_of_animal { get; set; } // Вид животного
         public string Habitat;
-        public void str()
-        {
-            Habitat = null;
-        }
+        public void str() => Habitat = null;
 
 
         public override string ToString()
@@ -56,7 +53,8 @@ namespace Laba7
         {
             if (weight < 0)
             {
-                throw new Exception_weight("Вес меньше 0");
+                Exception_weight exception_weight = new Exception_weight("Вес меньше 0");
+                throw exception_weight;
             }
         }
 
@@ -276,36 +274,36 @@ namespace Laba7
         static void Main(string[] args)
 
         {
-            //int a = 8;
+             
             ZOO zoo = new ZOO();
             
                 Mammial[] mammials = new Mammial[2];
+               
+                Birds[] birds = new Birds[2];
+        
+            try
+            {
+                int[] example = new int[4];
+                example[7] = 9;
+
+                Parrot parrot = new Parrot(2017, 2);
+                 Owl owls = new Owl(2015, -4);
+                Fish fish = new Fish(2019, 1);
+                 Tigr Tigra = new Tigr(-2014, 65);
                 Lion Lion = new Lion(2015, 64);
                 //Lion.Kind_of_animal = "Mammial";
                 //Lion.Habitat = "Savanna";
-                Tigr Tigra = new Tigr(2014, 65);
-            //  Tigra.Kind_of_animal = "Mammial";
-            //Tigra.Habitat = "Savanna";
+                //Tigra.Kind_of_animal = "Mammial";
+                //Tigra.Habitat = "Savanna";
 
-            try
-            {
-                Birds[] birds = new Birds[2];
-            }
-            catch (Exception_weight ex)
-            { Console.WriteLine("Ошибка: " + ex.Message); }
-                Parrot parrot = new Parrot(2017, 2);
-                Owl owls = new Owl(2015, -4);
-                Fish fish = new Fish(2019, 1);
-            try
-            {
-                Crocodile croky = new Crocodile();
-                croky.Sound();
+                //Crocodile croky = new Crocodile();
+                //croky.Sound();
 
                 zoo.Add(Lion);
                 zoo.Add(Tigra);
                 zoo.Add(fish);
-                zoo.Add(croky);
-                zoo.Add(owls);
+               // zoo.Add(croky);
+                 zoo.Add(owls);
                 zoo.Add(parrot);
                 //zoo.show();
                 controller.show(zoo);
@@ -317,16 +315,38 @@ namespace Laba7
 
             catch (Exception_IsFull ex)
             {
-                Console.WriteLine("Ошибка: " + ex.Message);
+                Console.WriteLine($"Исключение: {ex.Message}");
+                Console.WriteLine($"Метод: {ex.TargetSite}");
+                Console.WriteLine($"Трассировка стека: {ex.StackTrace}");
+
             }
             catch (Exception_weight ex)
             {
-                Console.WriteLine("Ошибка: " + ex.Message);
+                Console.WriteLine($"Исключение: {ex.Message}");
+                Console.WriteLine($"Метод: {ex.TargetSite}");
+                Console.WriteLine($"Трассировка стека: {ex.StackTrace}");
+
             }
             catch (Exception_age ex)
             {
-                Console.WriteLine("Ошибка: " + ex.Message);
+                Console.WriteLine($"Исключение: {ex.Message}");
+                Console.WriteLine($"Метод: {ex.TargetSite}");
+                Console.WriteLine($"Трассировка стека: {ex.StackTrace}");
+
             }
+            catch (IndexOutOfRangeException ex)
+            {
+                Console.WriteLine($"Исключение: {ex.Message}");
+                Console.WriteLine($"Метод: {ex.TargetSite}");
+                Console.WriteLine($"Трассировка стека: {ex.StackTrace}");
+            }
+            catch
+            {}
+            finally
+            {
+                Console.WriteLine("Блок finally");
+            }
+
             /////
             //Console.WriteLine();
             //Console.WriteLine(mammials.ToString());

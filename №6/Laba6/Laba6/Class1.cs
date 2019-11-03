@@ -162,7 +162,7 @@ namespace LAba5
             Console.WriteLine("Info:");
             for (int i = 0; i < pos; i++)
             {
-                Console.WriteLine( $" Вид {Kind[i]}  -  Год рождения: {Age[i]}  -   Вес: {Weight[i]}   Кг ");
+                Console.WriteLine( $" Вид {Kind[i]} - Год рождения: {Age[i]} - Вес: {Weight[i]}Кг ");
             }
             Console.WriteLine();
         }

@@ -267,7 +267,7 @@ namespace LAba5
                 controller.sort(zoo);
                 Console.WriteLine("Sortirovka");
                 controller.show(zoo);
-            zoo.show();
+                zoo.show();
 
 
                 /////

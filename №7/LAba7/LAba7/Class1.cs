@@ -1,5 +1,6 @@
 ﻿using System;
 
+using System.Diagnostics;
 
 namespace Laba7
 {
@@ -49,8 +50,8 @@ namespace Laba7
 
         public void Add(Base el)
         {
-           // if (isFull())
-             //   throw new Exception_IsFull("Полный");
+            if (isFull())
+             throw new Exception_IsFull("Полный");
             an[count++] = el;
         }
 
@@ -78,6 +79,7 @@ namespace Laba7
                 Console.WriteLine(an[i].ToString());
             }
             Console.WriteLine();
+            ;
         }
     }
 
@@ -97,18 +99,7 @@ namespace Laba7
     {
 
 
-        //public static void Weight(ZOO animal)
-        //{
-        //    int sum = 0;
-        //    for (int i = 0; i < animal.count - 1; i++)
-        //    {
-        //        for (int j = 0; j < 2; j++)
-        //        {
-        //            sum = animal.an[j].info.Weight + animal.an[j].info.Weight;
-        //            Console.WriteLine(sum);
-        //        }
-        //    }
-        //}
+       
 
         public static void sort(ZOO animal)
         {
@@ -149,7 +140,7 @@ namespace Laba7
                         break;
                     }
                 }
-                if (!b)
+                if (!b )
                 {
                     Kind[pos] = animal.an[j].GetType().Name;
                     Age[pos] = animal.an[j].info.Age;
@@ -157,8 +148,9 @@ namespace Laba7
                     count[pos]++;
                     pos++;
                 }
-
+               // Debug.Assert(b == true, "ERROR");
                 b = false;
+                
             }
 
             Console.WriteLine("Info:");

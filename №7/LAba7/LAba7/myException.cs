@@ -10,6 +10,7 @@ namespace Laba7
     {
         public Exception_IsFull(string message) : base(message)
         {
+            
         }
 
     }
@@ -17,12 +18,14 @@ namespace Laba7
     {
         public Exception_weight(string message) : base(message)
         {
+            
         }
     }
     class Exception_age : Exception
     {
         public Exception_age(string message) : base(message)
         {
+            
         }
     }
 }

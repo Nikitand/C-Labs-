@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Laba9
 {
+
+    delegate int summa(int x, int y, int z);
+    delegate void priv();
     class ProgCont
     { 
             public event EventHandler Rename;
@@ -31,22 +34,22 @@ namespace Laba9
             public Language()
             {
                 Name = "C# " ;
-            Property = 15;
-            count++;
+                Property = 15;
+                count++;
             }
 
             public Language(int lv)
             {
                 Name = "Jav ";
                 Property = lv;
-            count++;
+                count++;
             }
 
             public Language(int vl, string nam)
             {
                 Name = nam ;
                 Property = vl;
-            count++;
+                count++;
             }
 
             ~Language()
@@ -71,13 +74,14 @@ namespace Laba9
 
             public void change(object sender, EventArgs e)
             {
+            
             if (Property > 5)
             {
-                Console.WriteLine("Добавляем  свойства");
+                Console.WriteLine(Name +  " Добавляем  свойства");
                 Property--;
             }
             else {
-                Console.WriteLine("Удаляем свойство");
+                Console.WriteLine(Name + " Удаляем свойство");
                 Property++;
             }
             }

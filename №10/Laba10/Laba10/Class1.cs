@@ -14,26 +14,36 @@ namespace Laba10
     {
         string ToString();
     }
-    abstract public class Animals
+
+     public class Animals : IComparable
     {
 
 
         public virtual string Kind_of_animal { get; set; } // Вид животного
-        public string Habitat;
+        public int Age;
         public void str()
         {
-            Habitat = null;
+           
         }
 
         public override string ToString()
         {
-            return this.Kind_of_animal + this.Habitat;
+            return this.Kind_of_animal + this.Age;
+        }
+        void Animal()
+        {
+            Age = 15;
+
+        }
+        public int CompareTo(object obj)
+        {
+            return Age;
         }
 
-        abstract public void Sound();
+
     }
 
-    public class Mammial : Animals, ISound
+    public class Mammial : Animals
     {
         public override string Kind_of_animal
         {
@@ -48,10 +58,7 @@ namespace Laba10
             return this.Kind_of_animal;
         }
 
-        public override void Sound()
-        {
-
-        }
+        
 
     }
     public class Birds : Animals
@@ -68,10 +75,7 @@ namespace Laba10
         {
             return this.Kind_of_animal;
         }
-        public override void Sound()
-        {
-
-        }
+        
     }
     public class Fish : Animals, Iinter
     {
@@ -83,15 +87,7 @@ namespace Laba10
         public virtual void Name()
         {
         }
-        public override string ToString()
-        {
-            return this.Habitat;
-
-        }
-        public override void Sound()
-        {
-
-        }
+        
     }
     // Бесплоный класс
     sealed class Crocodile : Animals, ISound, Iinter
@@ -101,10 +97,7 @@ namespace Laba10
         private new readonly string Habitat = "Tropics";
 
 
-        public override void Sound()
-        {
-            Console.WriteLine("Араррараарар");
-        }
+       
         void ISound.Sound()
         {
             Console.WriteLine(" Реализация функции интерфейса");
@@ -112,7 +105,7 @@ namespace Laba10
     }
 
 
-    public class Lion : Mammial, ISound, Iinter
+    public class Lion : Mammial,  Iinter
     {
 
 
@@ -120,35 +113,26 @@ namespace Laba10
         {
             Console.WriteLine("Leo");
         }
-        public override void Sound()
-        {
-            Console.WriteLine("Рррррр");
-        }
+        
 
     }
-    public class Tigr : Mammial, ISound, Iinter
+    public class Tigr : Mammial,  Iinter
     {
 
         public override void Name()
         {
             Console.WriteLine("Tigra");
         }
-        public override void Sound()
-        {
-            Console.WriteLine("Рррррр");
-        }
+       
     }
-    public class Owl : Birds, ISound
+    public class Owl : Birds
     {
 
         public override void Name()
         {
             Console.WriteLine("Sova");
         }
-        public override void Sound()
-        {
-            Console.WriteLine("Оу Оу");
-        }
+       
     }
     public class Parrot : Birds
     {
@@ -157,10 +141,7 @@ namespace Laba10
         {
             Console.WriteLine("Kesha");
         }
-        public override void Sound()
-        {
-            Console.WriteLine("Привет, я попугай Кеша");
-        }
+        
 
         public class Shark : Fish, Iinter
         {

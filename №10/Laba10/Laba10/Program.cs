@@ -13,14 +13,14 @@ namespace Laba10
     {
         static void Main(string[] args)
         {
-            ArrayList first = new ArrayList();
-            first.Add(1);
-            first.Add(2);
-            first.Add(3);
-            first.Add(4);
-            first.Add(5);
+            Student student = new Student("name", "2");
+            //Animals animals = new Animals();
+            ArrayList first = new ArrayList(8)
+            {
+                1, 2, 3, 4, 5
+             };
             first.Add("String");
-            // first.Add(Student);
+             first.Add(student);
             first.RemoveAt(3);
             for (int i = 0; i < first.Count; i++)
             {
@@ -31,11 +31,10 @@ namespace Laba10
 
             Console.WriteLine();
             Console.WriteLine("вторая часть");
-            HashSet<long> second = new HashSet<long>();
-            second.Add(332434534);
-            second.Add(3324345343453454);
-            second.Add(33243453445334);
-            second.Add(332434534243);
+            HashSet<long> second = new HashSet<long>()
+            {
+                1234, 4545, 65646
+            };
             Console.WriteLine("вывод");
             foreach (long value in second)
             {
@@ -59,29 +58,26 @@ namespace Laba10
             Console.WriteLine(" Пользовательский тип");
             Console.WriteLine();
             HashSet<Animals> fifth = new HashSet<Animals>();
-            fifth.Add(332434534);
-            fifth.Add(3324345343453454);
-            fifth.Add(33243453445334);
-            fifth.Add();
+
+            fifth.Add(new Animals());
+            fifth.Add(new Animals());
+            fifth.Add(new Animals());
+        
             Console.WriteLine("вывод");
-            foreach (long value in fifth)
+            foreach (Animals value in fifth)
             {
                 Console.WriteLine(value);
 
             }
-            fifth.Remove(2);
-            foreach (long value in fifth)
-            {
-                Console.WriteLine(value);
-
-            }
+            
+            
             Console.WriteLine();
             SortedSet<Animals> six = new SortedSet<Animals>();
             six.UnionWith(fifth);
             foreach (Animals ch in six)
                 Console.Write(ch + "\n");
 
-            Console.WriteLine(six.Contains(332434534243));
+            Console.WriteLine(six.Contains(new Animals()));
 
             Console.WriteLine();
             Console.WriteLine("Наблюдаемая коллекция");

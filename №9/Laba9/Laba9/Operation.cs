@@ -7,12 +7,9 @@ using System.Threading.Tasks;
 namespace Laba9
 {
 
-    delegate int summa(int x, int y, int z);
-    delegate void priv();
+   
     class Operation
     {
-
-
         public static void DeleteSpaces(StringBuilder str)
         {
             for (int i = 0; i < str.Length; i++)

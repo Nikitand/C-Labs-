@@ -15,7 +15,7 @@ namespace Laba9
                 Console.WriteLine("Language:");
                 foreach (Language x in array)
                 {
-                    Console.Write($"{x.Name}   ");
+                    Console.Write($"{x.Name} -- ");
                     Console.WriteLine($"Свойство: {x.Property}");
                 }
                 Console.WriteLine();
@@ -47,11 +47,11 @@ namespace Laba9
 
             StringBuilder str = new StringBuilder("KSFV F S.eA Po");
             Action<StringBuilder> action;
-            action = StringMethods.AddBAfterS;
-            action += StringMethods.DeleteSpaces;
-            action += StringMethods.AddSpacesAfterPoints;
-            action += StringMethods.DeleteCommas;
-            action += StringMethods.DeleteLetterA;
+            action =  Operation.AddBAfterS;
+            action += Operation.DeleteSpaces;
+            action += Operation.AddSpacesAfterPoints;
+            action += Operation.DeleteCommas;
+            action += Operation.DeleteLetterA;
 
             action(str);
             Console.WriteLine($"{str}\n");

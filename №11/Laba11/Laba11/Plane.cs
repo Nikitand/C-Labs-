@@ -33,7 +33,7 @@ namespace Laba11
 
         public override string ToString()
         {
-            return "AIRLINE: " + "Тип"+ TYPE + "\t" +  "№ "+NUMBER + "\t" +"г." +  DESTINATION +"\t" + time +  "часа(ов)";
+            return "AIRLINE:   " + "г. " + DESTINATION +  "\t" +  "№  "+NUMBER + "\t   " + "Тип: " + TYPE + "\t    " + time +  " часа(ов)";
         }
 
     }
@@ -111,7 +111,7 @@ namespace Laba11
 
         static Airline()
         {
-            Console.WriteLine("Статический конструктор!");
+           // Console.WriteLine("Статический конструктор!");
         }
         public Airline(string des, int n, string ty)
         {

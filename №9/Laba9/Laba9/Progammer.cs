@@ -10,16 +10,17 @@ namespace Laba9
 
     delegate int summa(int x, int y, int z);
     delegate void priv();
+    delegate void prog();
     class ProgCont
     { 
-            public event EventHandler Rename;
-            public event EventHandler New_property;
+            public event prog Rename;
+            public event prog New_property;
             public void Run()
             {
             Console.WriteLine( "Run");
             if (Rename != null)
-                Rename(this, null);
-            New_property?.Invoke(this, null);
+                Rename();
+            New_property?.Invoke();
             }
 
     }
@@ -57,7 +58,7 @@ namespace Laba9
                 count--;
             }
 
-            public void Newname(object sender, EventArgs e)
+            public void Newname()
             {
             int i = 0;
             Console.WriteLine("Язык " +  Name + "\n Если название верно нажми 1, если нет нажми 0");
@@ -72,7 +73,7 @@ namespace Laba9
             }
             }
 
-            public void change(object sender, EventArgs e)
+            public void change()
             {
             
             if (Property > 5)

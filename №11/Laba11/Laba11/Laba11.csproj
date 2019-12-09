@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{16B8BB71-486F-4920-80AA-08E0A50CAA94}</ProjectGuid>
+    <ProjectGuid>{A4C110DD-99DB-460B-8783-1F1FA7D873C2}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Laba10</RootNamespace>
-    <AssemblyName>Laba10</AssemblyName>
+    <RootNamespace>Laba11</RootNamespace>
+    <AssemblyName>Laba11</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,11 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Plane.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="static.cs" />
-    <Compile Include="Student.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

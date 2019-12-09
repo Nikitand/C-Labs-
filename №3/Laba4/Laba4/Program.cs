@@ -90,7 +90,7 @@ namespace Laba4
             }
             public void Enqueue(int item)// добавление
             {
-                dataarr[tail] = item;
+                dataarr[tail] = item;   
                 tail++;
                 count++;
             }

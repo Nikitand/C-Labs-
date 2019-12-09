@@ -148,10 +148,11 @@ namespace Laba7
                     count[pos]++;
                     pos++;
                 }
-               // Debug.Assert(b == true, "ERROR");
-                b = false;
+              // Debug.Assert(b == true, "ERROR");
+               b = false;
                 
             }
+            
 
             Console.WriteLine("Info:");
             for (int i = 0; i < pos; i++)

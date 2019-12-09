@@ -283,22 +283,28 @@ namespace Laba7
         
             try
             {
-                int[] example = new int[4];
-                example[7] = 9;
+               
 
                 Parrot parrot = new Parrot(2017, 2);
-                 Owl owls = new Owl(2015, -4);
+                 Owl owls = new Owl(2015, 4);
                 Fish fish = new Fish(2019, 1);
-                 Tigr Tigra = new Tigr(-2014, 65);
+                 Tigr Tigra = new Tigr(2014, 65);
                 Lion Lion = new Lion(2015, 64);
-                //Lion.Kind_of_animal = "Mammial";
-                //Lion.Habitat = "Savanna";
-                //Tigra.Kind_of_animal = "Mammial";
-                //Tigra.Habitat = "Savanna";
 
-                //Crocodile croky = new Crocodile();
-                //croky.Sound();
-
+                try
+                {
+                    Console.WriteLine("Вложенное исключение ");
+                    int[] example = new int[4];
+                    example[7] = 9;
+                    Console.WriteLine("Исключение сработало");
+                }
+                catch (IndexOutOfRangeException ex)
+                {
+                    
+                    Console.WriteLine($"Исключение: {ex.Message}");
+                    Console.WriteLine($"Метод: {ex.TargetSite}");
+                    Console.WriteLine($"Трассировка стека: {ex.StackTrace}");
+                }
                 zoo.Add(Lion);
                 zoo.Add(Tigra);
                 zoo.Add(fish);
@@ -310,7 +316,7 @@ namespace Laba7
                 controller.sort(zoo);
                 Console.WriteLine("Sortirovka");
                 controller.show(zoo);
-                zoo.show();
+                
             }
 
             catch (Exception_IsFull ex)
@@ -334,12 +340,7 @@ namespace Laba7
                 Console.WriteLine($"Трассировка стека: {ex.StackTrace}");
 
             }
-            catch (IndexOutOfRangeException ex)
-            {
-                Console.WriteLine($"Исключение: {ex.Message}");
-                Console.WriteLine($"Метод: {ex.TargetSite}");
-                Console.WriteLine($"Трассировка стека: {ex.StackTrace}");
-            }
+           
             catch
             {}
             finally

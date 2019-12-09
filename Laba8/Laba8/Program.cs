@@ -3,53 +3,7 @@ using System.Collections;
 
 namespace Laba8
 {
-    // Статические класс
-    //  Математически операции
-
-    //public static class MathOperation
-    //{
-    //    public static int GetCount(Queue queue_2)
-    //    {
-    //        int count = 0;
-    //        foreach (int i in queue_2)
-    //            count++;
-    //        return count;
-    //    }
-    //    public static int GetMax(Queue queue_2)
-    //    {
-    //        int max = 0;
-    //        foreach (int i in queue_2)
-    //        {
-    //            if (i > max)
-    //                max = i;
-
-    //        }
-    //        return max;
-
-    //    }
-    //    public static int GetMin(Queue queue_2)
-    //    {
-    //        int min = 0;
-    //        foreach (int i in queue_2)
-    //        {
-    //            if (i < min)
-    //                min = i;
-    //        }
-    //        return min;
-
-    //    }
-    //    public static int Sum(Queue queue_2)
-    //    {
-    //        int sum = 0;
-    //        foreach (int i in queue_2)
-    //        {
-    //            sum += i;
-
-    //        }
-    //        return sum;
-
-    //    }
-    //}
+  
     public interface IObInterface<T>
     {
         void add(T obj);
@@ -81,7 +35,7 @@ namespace Laba8
 
    
     // Очередь
-    public class Queue<T> : IObInterface<T> where T : struct
+    public class Queue<T> : IObInterface<T>// where T : class
     {
         public T[] dataarr; // данные
         public int head;//голова
@@ -183,10 +137,10 @@ namespace Laba8
                 queue_1.add(4);
                 queue_1.add(7);
                 queue_1 = queue_1 + 2;
-                //Queue<string> queue_2 = new Queue<string>(2);
-                //queue_2.add("first");
-                //queue_2.add("second");
-                //queue_2.show();
+              // Queue<string> queue_2 = new Queue<string>(2);
+              // queue_2.add("first");
+              //queue_2.add("second");
+              //queue_2.show();
                 Queue<bool> queue_3 = new Queue<bool>(2);
                 queue_3.add(true);
                 queue_3.add(false);
@@ -199,9 +153,13 @@ namespace Laba8
                 Console.WriteLine("Univer: " + queue_1.owner.Univer);
                 queue_1.show();
                 // exception_2
-               // queue_1.Clear();
-               // queue_1.del(4);
-               
+                //queue_1.Clear();
+                // queue_1.del(4);
+                //
+                Queue<Animals> queue_4 = new Queue<Animals>(3);
+                queue_4.add(new Animals());
+                queue_4.show();
+
             }
             catch (Exception_size ex)
             {
@@ -220,21 +178,7 @@ namespace Laba8
                 Console.WriteLine("Конец программы");
             }
 
-            //    queue_1.Enqueue(5);
-            //    queue_1 = queue_1 + 2;
-            //    queue_1 = queue_1 + 1;
-            //    Console.WriteLine("Очередь №1");
-            //    foreach (int i in queue_1.dataarr)
-            //        Console.WriteLine(i);
-            //    Console.WriteLine("Очередь №2 до");
-            //    foreach (int i in queue_2.dataarr)
-            //        Console.WriteLine(i);
-            //    queue_2 = queue_1 > queue_2;
-            //    Console.WriteLine("Очередь №2 после");
-            //    foreach (int i in queue_2.dataarr)
-            //        Console.WriteLine(i);
-            //    info = DateTime.Now;
-            //    Console.WriteLine(info);
+            
 
         }
 

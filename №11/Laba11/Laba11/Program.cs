@@ -125,10 +125,12 @@ namespace Laba11
                 Console.WriteLine(x);
             }
 
+
+
             Console.WriteLine();
             Console.WriteLine("Join");
-            string[] str_1 = new string[3] { "123", "456", "121" };
-            int[] num = new int[3] { 1, 2, 3 };
+            string[] str_1 = new string[] { "","30", "6", "121", " 4580" };
+            int[] num = new int[] {0 , 1, 2, 3, 4 };
 
             var SomeType = str_1
                 .Join(

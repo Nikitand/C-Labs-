@@ -29,7 +29,7 @@ namespace Laba13
             Console.WriteLine();
             ONEFileManager.Get();
             ONEFileManager.Get_2();
-            ONEFileManager.GetToZip();
+        //    ONEFileManager.GetToZip();
             str1 = Console.ReadLine();
             while (str1 != "q")
             {

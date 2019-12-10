@@ -50,7 +50,7 @@ namespace Laba13
                     writer.WriteLine(x);
             }
             string  path_3 = @"D:\универ\3 сем\ООп\ONEInspect\newName.txt";
-            File.Copy(path_2, path_3);
+            File.Copy(path_2, path_3, true);
             File.Delete(path_2);
         }
         public static void Get_2()
@@ -75,7 +75,7 @@ namespace Laba13
         public static void GetToZip()
         {
             string startpath = @"D:\универ\3 сем\ООп\ONEInspect";
-            string zippath = @"D:\универ\3 сем\ООп\ONEInspect\ONEFile\result.zip";
+            string zippath = @"D:\универ\3 сем\ООп\ONErar\result.zip";
             string extractpath = @"D:\универ\3 сем\ООп\extract";
             ZipFile.CreateFromDirectory(startpath, zippath);
             ZipFile.ExtractToDirectory(zippath, extractpath);

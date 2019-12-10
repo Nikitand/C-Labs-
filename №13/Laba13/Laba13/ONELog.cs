@@ -8,26 +8,31 @@ namespace Laba13
 {
     class ONELog
     {
-        private string path ;
+        private string path;
         private StreamWriter writer;
         private FileSystemWatcher watcher;
-        public void Log(string _path)
+
+        public ONELog(string _path)
         {
             path = _path;
             writer = new StreamWriter(path);
             watcher = new FileSystemWatcher(@"D:\");
+
             watcher.Changed += new FileSystemEventHandler(OnChange);
             watcher.EnableRaisingEvents = true;
         }
-        private  void OnChange(Object source, FileSystemEventHandler e)
+
+        private void OnChange(object source, FileSystemEventArgs e)
         {
-            writer.WriteLine($"{DateTime.Now} + { e.Fullpath} + {e.changetype}");
+            writer.WriteLine($"[{DateTime.Now}] {e.FullPath} {e.ChangeType}");
         }
+
         public void close()
         {
             writer.Close();
             watcher.EnableRaisingEvents = false;
         }
+
         public void GetByCurrentMinute(string _path)
         {
             StreamReader reader = new StreamReader(path);
@@ -57,4 +62,4 @@ namespace Laba13
     }
 
 }
-}
+
